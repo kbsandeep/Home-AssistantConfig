@@ -1,0 +1,13 @@
+- id: '1534068628167'
+  alias: Sandeep Near Home (Google)
+  trigger:
+  - entity_id: device_tracker.google_maps_110236142839907689111
+    event: enter
+    platform: zone
+    zone: zone.home
+  condition: []
+  action:
+  - data:
+      gw_mac: 78:11:DC:B0:63:24
+      ringtone_id: 10006
+    service: xiaomi_aqara.play_ringtone

@@ -1,0 +1,15 @@
+  - name: Home
+    latitude: 12.946358
+    longitude: 77.534933
+    radius: 100
+    icon: mdi:home
+  - name: Work
+    latitude: 12.932575
+    longitude: 77.695874
+    radius: 500
+    icon: mdi:office-building
+  - name: Mandya
+    latitude: 12.5895185
+    longitude: 76.9018561
+    radius: 250
+    icon: mdi:home-outline

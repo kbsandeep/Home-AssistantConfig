@@ -1,0 +1,128 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 12.9833
+  longitude: 77.5833
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Kolkata
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - yeelight
+    - samsung_tv
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+#DS# Sensors
+sensor: !include sensors.yaml
+#DS# Zones
+zone: !include zones.yaml
+#DS# Weather - DarkSky
+weather:
+  - platform: darksky
+    api_key: 02e5932296870913b6263de3e34a3dfe
+    latitude: 12.9469938
+    longitude: 77.5361945
+    mode: daily
+#DS# Media Player
+media_player:
+  - platform: samsungtv
+    host: 192.168.1.105
+    port: 8001
+    name: Samsung TV
+#DS# Lights
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.151:
+        name: Bulb
+        transition: 1000
+      192.168.1.152:
+        name: Lightstrip
+        transition: 1000
+#DS# Xiaomi Gateway
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: 3097365E69D14775
+#DS# Home Kit
+homekit:
+  filter:
+    exclude_entities:
+      - device_tracker.google_maps_110236142839907689111
+      - device_tracker.google_maps_104208740730630847239
+      - device_tracker.google_maps_103661989431622870453
+      - binary_sensor.switch_158d0001bc55a3
+      - binary_sensor.switch_158d0001f37914
+      - binary_sensor.switch_158d0002134bc6
+      - binary_sensor.cube_158d000101bbe9
+      - binary_sensor.wall_switch_158d0001834739
+      - binary_sensor.wall_switch_158d000183cf78
+      - binary_sensor.wall_switch_158d000183d04e
+#DS# Configurator iFrame
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://192.168.1.125:3218
+#DS# IFTTT Integration
+ifttt:
+  key: de_3YzA1tuzTFYOyg97Lh-
+#DS# Device Tracker
+device_tracker:
+  - platform: bluetooth_tracker
+  - platform: google_maps
+    username: !secret google_gps_username
+    password: !secret google_gps_password

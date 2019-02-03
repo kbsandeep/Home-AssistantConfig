@@ -1,0 +1,28 @@
+family_members:
+  name: 'Family Members'
+  entities:
+    - device_tracker.google_maps_110236142839907689111
+    - device_tracker.google_maps_104208740730630847239
+
+room_temperature:
+  name: 'Bedroom Temperature & Humidity'
+  entities:
+    - sensor.temperature_158d000208f029
+    - sensor.humidity_158d000208f029
+
+sensors:
+  name: 'Sensors'
+  entities:
+    - binary_sensor.door_window_sensor_158d000200daa6
+    - binary_sensor.motion_sensor_158d0001e5fecf
+
+light_intensity:
+  name: 'Bedroom Light Intensity'
+  entities:
+    - sensor.illumination_158d0001e5fecf
+    - sensor.illumination_7811dcb06324
+
+pi_health:
+  name: 'PI Health'
+  entities:
+    - sensor.cpu_temperature
